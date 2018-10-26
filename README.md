@@ -1,1 +1,1 @@
-# MSci-Project-21cm analparams
+# MSci-Project-21cm
