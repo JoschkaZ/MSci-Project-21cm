@@ -1,3 +1,8 @@
+from sys import platform
 
 def get_path():
-    return r'C:\21cmFAST\21cmFAST-master'
+    if platform == "darwin":
+        return r''
+
+    else
+        return r'C:\21cmFAST\21cmFAST-master'
