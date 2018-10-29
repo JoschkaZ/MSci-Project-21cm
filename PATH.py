@@ -2,7 +2,7 @@ from sys import platform
 
 def get_path():
     if platform == "darwin":
-        return r''
+        return r'/Users/HirokazuKatori/Desktop/MSci Project'⁨ ⁨
 
-    else
+    else:
         return r'C:\21cmFAST\21cmFAST-master'

@@ -2,12 +2,16 @@ import os
 from PATH import get_path
 import numpy as np
 import matplotlib.pyplot as plt
+from sys import platform
 
 def read_box(filename, verbose=1):
 
     PATH = get_path()
-    boxpath = PATH + '\\Boxes\\' +  filename
-    boxpath = boxpath
+
+    if platform == "darwin":
+            boxpath = PATH + '/Boxes/' +  filename
+    else:
+            boxpath = PATH + '\\Boxes\\' +  filename
     dtype='f'
     fd=open(boxpath,'rb')
     read_data=np.fromfile(fd,dtype)
