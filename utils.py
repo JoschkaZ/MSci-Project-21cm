@@ -177,6 +177,11 @@ def cd_to_python():
     user = get_user()
     os.chdir(r'/home/' + user + r'/MSci-Project-21cm')
 
+def clear_box_directory(verbose=1):
+    user = get_user()
+    commands = ['rm /home/'+user+r'/21cmFAST-master/Boxes/*']
+    run_commands(commands, verbose=verbose)
+    return 1
 
 
 if __name__ == '__main__':
