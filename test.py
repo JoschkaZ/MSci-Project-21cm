@@ -21,3 +21,17 @@ utils.box_to_movie(box)
 # %% CHANGE A PARAMETER
 utils.change_parameter('ZETA_X', '4.0e56')
 #utils.change_parameter('ZETA_X', 'default')
+
+# %% RUN COMMANDS IN SHELL
+commands = [
+'cd',
+'cd 21cmFAST-master',
+'cd Programs',
+'make',
+'./drive_logZscroll_Ts'
+]
+
+utils.change_parameter('ZETA_X', 'default')
+utils.run_commands(commands)
+utils.change_parameter('ZETA_X', '3.0e56')
+utils.run_commands(commands)

@@ -136,6 +136,12 @@ def change_parameter(parameter_name, new_value, verbose=1):
 
     return 1
 
+def run_commands(commands, verbose=1):
+    for command in commands:
+        print('Running command: ' + command)
+        os.system(command)
+    return 1
+
 
 
 
