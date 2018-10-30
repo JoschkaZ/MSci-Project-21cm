@@ -3,6 +3,8 @@ from PATH import get_path
 import numpy as np
 import matplotlib.pyplot as plt
 from sys import platform
+from os import listdir
+from os.path import isfile, join
 
 def get_user():
     linpath = os.getcwd()
@@ -178,10 +180,25 @@ def cd_to_python():
     os.chdir(r'/home/' + user + r'/MSci-Project-21cm')
 
 def clear_box_directory(verbose=1):
+    if verbose == 1: print('clearing box directory')
     user = get_user()
     commands = ['rm /home/'+user+r'/21cmFAST-master/Boxes/*']
     run_commands(commands, verbose=verbose)
     return 1
+
+def get_delta_T_boxes():
+    user = get_user()
+    mypath = r'/home/' + user + r'/21cmFAST-master/Boxes'
+    boxfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
+    temp = []
+    for boxfile in boxfiles:
+        if boxfile[0:8] == 'delta_T_':
+            temp.append(boxfile)
+
+    return temp
+
+
 
 
 if __name__ == '__main__':

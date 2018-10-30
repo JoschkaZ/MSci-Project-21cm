@@ -3,6 +3,8 @@
 import importlib
 import numpy as np
 import utils
+from os import listdir
+from os.path import isfile, join
 importlib.reload(utils)
 
 
@@ -32,3 +34,10 @@ utils.change_parameter('ZETA_X', 'default')
 utils.run_commands(commands)
 utils.change_parameter('ZETA_X', '3.0e56')
 utils.run_commands(commands)
+
+
+# %%
+
+mypath = 'C:\\'
+onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+print(onlyfiles)
