@@ -13,17 +13,15 @@ def read_box(filename, verbose=1):
 
     if platform == "darwin": # its mac
         boxpath = PATH + '/Boxes/' +  filename
-
     elif platform == "linux":
         boxpath = PATH + '/Boxes/' + filename
-
     else: # its windows
             boxpath = PATH + '\\Boxes\\' +  filename
+
     dtype='f'
     fd=open(boxpath,'rb')
     read_data=np.fromfile(fd,dtype)
     fd.close()
-
 
     dim = int(np.round(len(read_data)**(1./3)))
     row = []
@@ -83,7 +81,19 @@ def change_parameter(parameter_name, new_value, verbose=1):
     # get path to file
     PATH = get_path()
     if parameter_name == 'ZETA_X':
-        filepath = PATH + '\\Parameter_files\\HEAT_PARAMS.H'
+
+        if platform == "darwin": # its mac
+            filepath = PATH + '/Parameter_files/HEAT_PARAMS.H'
+        elif platform == "linux":
+            filepath = PATH + '/Parameter_files/HEAT_PARAMS.H'
+        else: # its windows
+            filepath = PATH + '\\Parameter_files\\HEAT_PARAMS.H'
+
+
+
+
+
+
         if new_value == 'default':
             new_value = '2.0e56'
     elif parameter_name == '...':
