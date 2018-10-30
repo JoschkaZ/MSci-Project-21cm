@@ -161,6 +161,8 @@ def run_commands(commands, verbose=1):
 
 def cd_to_boxes(user):
     os.chdir(r'/home/' + user + r'/21cmFAST-master/Boxes')
+def cd_to_programs(user):
+    os.chdir(r'/home/' + user + r'/21cmFAST-master/Programs')
 def cd_to_python(user):
     os.chdir(r'/home/' + user + r'/MSci-Project-21cm')
 
