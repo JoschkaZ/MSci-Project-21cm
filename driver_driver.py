@@ -19,6 +19,12 @@ for loop in loopz:
     commands = ['make', './drive_logZscroll_Ts']
     utils.run_commands(commands)
 
+    #zip all delta_T_boxes
+    utils.cd_to_boxes()
+    box_names = utils.get_delta_T_boxes()
+
+    utils.zip_boxnames(box_names)
+
 
     '''
     next steps after driver has finished:

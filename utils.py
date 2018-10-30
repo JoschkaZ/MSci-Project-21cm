@@ -186,7 +186,8 @@ def clear_box_directory(verbose=1):
     run_commands(commands, verbose=verbose)
     return 1
 
-def get_delta_T_boxes():
+def get_delta_T_boxes(verbose=1):
+    if verbose == 1: print('getting delta_t box names')
     user = get_user()
     mypath = r'/home/' + user + r'/21cmFAST-master/Boxes'
     boxfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
@@ -198,6 +199,19 @@ def get_delta_T_boxes():
 
     return temp
 
+def zip_boxes(box_names, verbose=1):
+    box_names = ''.join(box_names)
+    text_file = open(r'/home/' + user + r'/21cmFAST-master/Boxes/out.txt', "w")
+    text_file.write(box_names)
+    text_file.close()
+
+    if verbose==1: print('zipping boxes')
+
+    commands = ['zip archive -@ < out.txt']
+    run_commands(commands)
+
+
+    return 1
 
 
 
