@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from sys import platform
 
 def what_platform():
+    print(platform)
     return platform
 def read_box(filename, verbose=1):
 
