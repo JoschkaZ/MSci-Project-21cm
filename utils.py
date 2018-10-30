@@ -200,6 +200,7 @@ def get_delta_T_boxes(verbose=1):
     return temp
 
 def zip_boxes(box_names, verbose=1):
+    user = get_user()
     box_names = ''.join(box_names)
     text_file = open(r'/home/' + user + r'/21cmFAST-master/Boxes/out.txt', "w")
     text_file.write(box_names)

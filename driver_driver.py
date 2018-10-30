@@ -23,7 +23,7 @@ for loop in loopz:
     utils.cd_to_boxes()
     box_names = utils.get_delta_T_boxes()
 
-    utils.zip_boxnames(box_names)
+    utils.zip_boxes(box_names)
 
 
     '''
