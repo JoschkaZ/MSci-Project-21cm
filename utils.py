@@ -11,9 +11,13 @@ def read_box(filename, verbose=1):
 
     PATH = get_path()
 
-    if platform == "darwin":
-            boxpath = PATH + '/Boxes/' +  filename
-    else:
+    if platform == "darwin": # its mac
+        boxpath = PATH + '/Boxes/' +  filename
+
+    elif platform == "linux":
+        boxpath = PATH + '/Boxes/' + filename
+
+    else: # its windows
             boxpath = PATH + '\\Boxes\\' +  filename
     dtype='f'
     fd=open(boxpath,'rb')

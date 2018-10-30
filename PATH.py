@@ -4,5 +4,7 @@ def get_path():
     if platform == "darwin":
         #return r'/Users/HirokazuKatori/Desktop/MSci Project'⁨ ⁨
         1
+    elif platform == "linux":
+        return r'/home/jz8415/21cmFAST-master'
     else:
         return r'C:\21cmFAST\21cmFAST-master'
