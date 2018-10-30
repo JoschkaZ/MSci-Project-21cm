@@ -5,7 +5,9 @@ import matplotlib.pyplot as plt
 from sys import platform
 
 def get_user():
-    linpath = os.system(command)
+    linpath = os.getcwd()
+    user = linpath.split('/')[2]
+    return user
 
 def what_platform():
     print(platform)
@@ -68,10 +70,7 @@ def show_box(box):
 def box_to_movie(box, verbose=1):
 
     PATH = get_path()
-    if platform == "darwin":
-        savedirectory = PATH + '/output_movie/'
-    else:
-        savedirectory = PATH + '\\output_movie\\'
+    savedirectory = PATH + '\\output_movie\\'
     if verbose==1: 'making movie'
     for layer in range(len(box)):
         print('saving frame #', layer)
@@ -168,11 +167,14 @@ def run_commands(commands, verbose=1):
 
 
 
-def cd_to_boxes(user):
+def cd_to_boxes():
+    user = get_user()
     os.chdir(r'/home/' + user + r'/21cmFAST-master/Boxes')
-def cd_to_programs(user):
+def cd_to_programs():
+    user = get_user()
     os.chdir(r'/home/' + user + r'/21cmFAST-master/Programs')
-def cd_to_python(user):
+def cd_to_python():
+    user = get_user()
     os.chdir(r'/home/' + user + r'/MSci-Project-21cm')
 
 

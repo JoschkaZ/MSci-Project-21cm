@@ -15,7 +15,7 @@ utils.show_box(box)
 
 
 # %% MAKE A MOVIE
-utils.box_to_movie(box)
+#utils.box_to_movie(box)
 
 
 # %% CHANGE A PARAMETER
