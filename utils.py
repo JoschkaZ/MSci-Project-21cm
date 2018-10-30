@@ -4,6 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sys import platform
 
+def what_platform():
+    return platform
 def read_box(filename, verbose=1):
 
     PATH = get_path()
