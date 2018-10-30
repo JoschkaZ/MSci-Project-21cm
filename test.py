@@ -18,6 +18,6 @@ utils.show_box(box)
 utils.box_to_movie(box)
 
 
-
 # %% CHANGE A PARAMETER
-change_parameter('ZETA_X', '3.0e56')
+utils.change_parameter('ZETA_X', '4.0e56')
+#utils.change_parameter('ZETA_X', 'default')
