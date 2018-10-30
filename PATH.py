@@ -4,5 +4,5 @@ def get_path():
     if platform == "darwin":
         return r''
 
-    else
+    else:
         return r'C:\21cmFAST\21cmFAST-master'
