@@ -14,6 +14,10 @@ box = utils.read_box(r'delta_T_v3_no_halos_z007.20_nf0.715123_useTs0_zetaX-1.0e+
 utils.show_box(box)
 
 
-# %%
+# %% MAKE A MOVIE
 utils.box_to_movie(box)
-# ()[]
+
+
+
+# %% CHANGE A PARAMETER
+change_parameter('ZETA_X', '3.0e56')

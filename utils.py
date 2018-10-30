@@ -68,3 +68,26 @@ def box_to_movie(box, verbose=1):
 
     print('..........')
     return 1
+
+def change_parameter(parameter_name, new_value, verbose=1):
+
+    PATH = get_path()
+
+    #ZETA_X (double) (2.0e56) // 2e56 ~ 0.3 X-ray photons per stellar baryon
+
+    if parameter_name == 'ZETA_X':
+        filepath = PATH + '\\Parameter_files\\HEAT_PARAMS.H'
+
+    else:
+        print('WARNING - PARAMETER_NAME NOT RECOGNIZED!')
+        return 0
+
+    if verbose == 1:
+        print('Changing paramter ', parameter_name, ' to ', value)
+
+
+    # r'C:\21cmFAST\21cmFAST-master'
+    #:\21cmFAST\21cmFAST-master\Parameter_files
+
+if __name__ == '__main__':
+    print(1)
