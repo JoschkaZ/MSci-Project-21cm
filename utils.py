@@ -64,7 +64,10 @@ def show_box(box):
 def box_to_movie(box, verbose=1):
 
     PATH = get_path()
-    savedirectory = PATH + '\\output_movie\\'
+    if platform == "darwin":
+        savedirectory = PATH + '/output_movie/'
+    else:
+        savedirectory = PATH + '\\output_movie\\'
     if verbose==1: 'making movie'
     for layer in range(len(box)):
         print('saving frame #', layer)
