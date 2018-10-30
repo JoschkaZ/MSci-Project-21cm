@@ -24,9 +24,6 @@ utils.change_parameter('ZETA_X', '4.0e56')
 
 # %% RUN COMMANDS IN SHELL
 commands = [
-'cd',
-'cd 21cmFAST-master',
-'cd Programs',
 'make',
 './drive_logZscroll_Ts'
 ]
