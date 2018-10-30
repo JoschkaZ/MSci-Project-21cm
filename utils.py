@@ -4,9 +4,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sys import platform
 
+def get_user():
+    linpath = os.system(command)
+
 def what_platform():
     print(platform)
     return platform
+
 def read_box(filename, verbose=1):
 
     PATH = get_path()
@@ -158,6 +162,8 @@ def run_commands(commands, verbose=1):
         print('Running command: ' + command)
         os.system(command)
     return 1
+
+
 
 def cd_to_boxes(user):
     os.chdir(r'/home/' + user + r'/21cmFAST-master/Boxes')
