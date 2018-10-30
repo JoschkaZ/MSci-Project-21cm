@@ -23,7 +23,9 @@ for loop in loopz:
     utils.cd_to_boxes()
     box_names = utils.get_delta_T_boxes()
 
-    utils.zip_boxes(box_names)
+
+    archive_name = 'my_archive'
+    utils.zip_boxes(box_names, archive_name)
 
 
     '''

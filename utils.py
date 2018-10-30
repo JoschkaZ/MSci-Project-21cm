@@ -199,17 +199,26 @@ def get_delta_T_boxes(verbose=1):
 
     return temp
 
-def zip_boxes(box_names, verbose=1):
+def zip_boxes(box_names, archive_name verbose=1):
     user = get_user()
+
+    #get box names
     box_names = '\n'.join(box_names)
+
+    #write box names to out.txt
     text_file = open(r'/home/' + user + r'/21cmFAST-master/Boxes/out.txt', "w")
     text_file.write(box_names)
     text_file.close()
 
     if verbose==1: print('zipping boxes')
 
-    commands = ['zip archive -@ < out.txt']
+    # zip boxes
+    commands = [
+    'zip archive -@ < out.txt',
+    'mv archive.zip new-file-name']
     run_commands(commands)
+
+    mv old-file-name new-file-name
 
 
     return 1
