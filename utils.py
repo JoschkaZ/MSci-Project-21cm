@@ -58,7 +58,7 @@ def box_to_movie(box, verbose=1):
     savedirectory = PATH + '\\output_movie\\'
     if verbose==1: 'making movie'
     for layer in range(len(box)):
-        print()'saving frame #', layer)
+        print('saving frame #', layer)
         plt.imshow(box[layer], cmap='hot', interpolation='nearest')
         plt.savefig(savedirectory + str(layer) + '.png', format='png')
 
