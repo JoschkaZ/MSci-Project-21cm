@@ -247,6 +247,8 @@ def zip_boxes(box_names, archive_name, verbose=1):
 
     if verbose==1: print('zipping boxes')
 
+
+    #print('archive name ', archive_name)
     # zip boxes
     commands = [
     'zip '+ archive_name +' -@ < out.txt', #zip all files listed in out.txt
