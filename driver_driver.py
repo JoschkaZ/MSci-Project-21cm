@@ -5,6 +5,8 @@ import utils
 importlib.reload(utils)
 
 
+zip_name = 'single_redshift'
+
 seeds = range(10)
 for seed in seeds:
     print('using seed ', seed)
@@ -31,7 +33,7 @@ for seed in seeds:
     #zip all delta_T_boxes
     utils.cd_to_boxes()
     box_names = utils.get_delta_T_boxes()
-    archive_name = 'my_archive_' + str(seed)
+    archive_name = zip_name + '_' + str(seed) #DEFINE ARCHIVE NAME
     utils.zip_boxes(box_names, archive_name)
 
 
