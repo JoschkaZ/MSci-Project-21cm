@@ -225,7 +225,7 @@ def get_delta_T_boxes(verbose=1):
 
     return temp
 
-def zip_boxes(box_names, archive_name verbose=1):
+def zip_boxes(box_names, archive_name, verbose=1):
     user = get_user()
 
     #get box names
@@ -240,12 +240,9 @@ def zip_boxes(box_names, archive_name verbose=1):
 
     # zip boxes
     commands = [
-    'zip archive -@ < out.txt',
-    'mv archive.zip new-file-name']
+    'zip archive -@ < out.txt', #zip all files listed in out.txt
+    'mv archive.zip ' + str(archive_name)] # rename archive.zip
     run_commands(commands)
-
-    mv old-file-name new-file-name
-
 
     return 1
 
