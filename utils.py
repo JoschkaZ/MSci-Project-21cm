@@ -249,8 +249,8 @@ def zip_boxes(box_names, archive_name, verbose=1):
 
     # zip boxes
     commands = [
-    'zip archive -@ < out.txt', #zip all files listed in out.txt
-    'mv archive.zip ' + str(archive_name)] # rename archive.zip
+    'zip '+ archive_name +' -@ < out.txt', #zip all files listed in out.txt
+    'mv '+archive_name+'.zip ' + '/home/'+user+r'/Outputs/'] # move archive.zip
     run_commands(commands)
 
     return 1

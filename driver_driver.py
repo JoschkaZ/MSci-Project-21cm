@@ -5,7 +5,7 @@ import utils
 importlib.reload(utils)
 
 
-seeds = range(1)
+seeds = range(10)
 for seed in seeds:
     print('using seed ', seed)
 
@@ -20,7 +20,7 @@ for seed in seeds:
     #change some parameters
     utils.change_parameter('ZETA_X', 'default')
     utils.change_parameter('RANDOM_SEED', str(seed))
-    utils.change_parameter('drive_zscroll_noTs ZSTART', 10)
+    utils.change_parameter('drive_zscroll_noTs ZSTART', 9)
     utils.change_parameter('drive_zscroll_noTs ZEND', 9)
 
     #run driver
@@ -31,7 +31,7 @@ for seed in seeds:
     #zip all delta_T_boxes
     utils.cd_to_boxes()
     box_names = utils.get_delta_T_boxes()
-    archive_name = 'my_archive ' + str(seed)
+    archive_name = 'my_archive_' + str(seed)
     utils.zip_boxes(box_names, archive_name)
 
 
