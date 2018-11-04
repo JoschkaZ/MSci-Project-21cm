@@ -128,7 +128,7 @@ def change_parameter(parameter_name, new_value, verbose=1):
     PATH = get_path()
 
     f1,f2,new_value = get_parameter_name(parameter_name, new_value)
-    if f1 = 0: return 0
+    if f1 == 0: return 0
 
     # get path to parameter file
     if platform == "darwin": # its a mac !
