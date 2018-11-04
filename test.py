@@ -41,3 +41,8 @@ utils.run_commands(commands)
 mypath = 'C:\\'
 onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 print(onlyfiles)
+
+# %% try chaning parameter
+
+utils.change_parameter('drive_zscroll_noTs ZSTART', '9')
+utils.change_parameter('drive_zscroll_noTs ZEND', '9')

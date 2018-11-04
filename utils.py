@@ -100,25 +100,27 @@ def get_parameter_paths(parameter_name, new_value):
 
         f1 = 'Programs'
         f2 = 'drive_zscroll_noTs.c'
+        parameter_name = 'ZSTART'
         if new_value == 'default': new_value = '12'
 
     elif parameter_name == 'drive_zscroll_noTs ZEND':
 
         f1 = 'Programs'
         f2 = 'drive_zscroll_noTs.c'
+        parameter_name = 'ZEND'
         if new_value == 'default': new_value = '6'
 
     elif parameter_name == 'drive_zscroll_noTs ZSTEP':
 
         f1 = 'Programs'
         f2 = 'drive_zscroll_noTs.c'
+        parameter_name = 'ZSTEP'
         if new_value == 'default': new_value = '-0.2'
-
 
     else:
         print('WARNING - PARAMETER_NAME NOT RECOGNIZED!')
         return 0,0,0
-    return f1,f2,new_value
+    return f1,f2,new_value,parameter_name
 
 def change_parameter(parameter_name, new_value, verbose=1):
 
@@ -127,7 +129,7 @@ def change_parameter(parameter_name, new_value, verbose=1):
     # get path to file
     PATH = get_path()
 
-    f1,f2,new_value = get_parameter_paths(parameter_name, new_value)
+    f1,f2,new_value,parameter_name = get_parameter_paths(parameter_name, new_value)
     if f1 == 0: return 0
 
     # get path to parameter file
@@ -152,7 +154,11 @@ def change_parameter(parameter_name, new_value, verbose=1):
         if '#define ' + parameter_name + ' (' in line:
             #print('CHANGING LINE')
             #print(line)
-            newline = '('.join(line.split('(')[0:2]) + '(' + new_value + ')' + ')'.join(line.split(')')[2::])
+            if len(line.split('(')) == 3: #its #define name (type) (value)
+                newline = '('.join(line.split('(')[0:2]) + '(' + str(new_value) + ')' + ')'.join(line.split(')')[2::])
+            else: #its #define name (value)
+                newline = line.split('(')[0] + '(' + str(new_value) + ')' + ')'.join(line.split(')')[1::])
+
             #print(newline)
         else:
             newline=line
