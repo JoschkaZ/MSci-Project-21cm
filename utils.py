@@ -90,7 +90,7 @@ def get_parameter_paths(parameter_name, new_value):
         f2 = 'HEAT_PARAMS.H'
         if new_value == 'default': new_value = '2.0e56'
 
-    elif parameter_name == 'SEED':
+    elif parameter_name == 'RANDOM_SEED':
 
         f1 = 'Parameter_files'
         f2 = 'INIT_PARAMS.H'
@@ -149,20 +149,22 @@ def change_parameter(parameter_name, new_value, verbose=1):
 
     # create new text
     new = []
+    found_it = False
     for line in old:
         #print(line)
         if '#define ' + parameter_name + ' (' in line:
+            found_it = True
             #print('CHANGING LINE')
             #print(line)
             if len(line.split('(')) == 3: #its #define name (type) (value)
                 newline = '('.join(line.split('(')[0:2]) + '(' + str(new_value) + ')' + ')'.join(line.split(')')[2::])
             else: #its #define name (value)
                 newline = line.split('(')[0] + '(' + str(new_value) + ')' + ')'.join(line.split(')')[1::])
-
             #print(newline)
         else:
             newline=line
         new.append(newline)
+    if found_it == False: print('WARNING - COULD NOT FIND ROW WITH PARAMETER TO BE CHANGED!')
 
     #print('#####PRINTING NEW FILE#####')
     #for line in new:

@@ -18,7 +18,7 @@ for seed in seeds:
 
     #change some parameters
     utils.change_parameter('ZETA_X', 'default')
-    utils.change_parameter('SEED', str(seed))
+    utils.change_parameter('RANDOM_SEED', str(seed))
     utils.change_parameter('drive_zscroll_noTs ZSTART', 9)
     utils.change_parameter('drive_zscroll_noTs ZEND', 9)
 
