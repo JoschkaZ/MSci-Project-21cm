@@ -46,3 +46,4 @@ print(onlyfiles)
 
 utils.change_parameter('drive_zscroll_noTs ZSTART', '9')
 utils.change_parameter('drive_zscroll_noTs ZEND', '9')
+utils.change_parameter('RANDOM_SEED', '123')
