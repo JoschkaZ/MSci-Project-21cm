@@ -82,36 +82,62 @@ def box_to_movie(box, verbose=1):
     print('..........')
     return 1
 
+def get_parameter_paths(parameter_name, new_value):
+
+    if parameter_name == 'ZETA_X':
+
+        f1 = 'Parameter_files'
+        f2 = 'HEAT_PARAMS.H'
+        if new_value == 'default': new_value = '2.0e56'
+
+    elif parameter_name == 'SEED':
+
+        f1 = 'Parameter_files'
+        f2 = 'INIT_PARAMS.H'
+        if new_value == 'default': new_value = '1'
+
+    elif parameter_name == 'drive_zscroll_noTs ZSTART':
+
+        f1 = 'Programs'
+        f2 = 'drive_zscroll_noTs.c'
+        if new_value == 'default': new_value = '12'
+
+    elif parameter_name == 'drive_zscroll_noTs ZEND':
+
+        f1 = 'Programs'
+        f2 = 'drive_zscroll_noTs.c'
+        if new_value == 'default': new_value = '6'
+
+    elif parameter_name == 'drive_zscroll_noTs ZSTEP':
+
+        f1 = 'Programs'
+        f2 = 'drive_zscroll_noTs.c'
+        if new_value == 'default': new_value = '-0.2'
+
+
+    else:
+        print('WARNING - PARAMETER_NAME NOT RECOGNIZED!')
+        return 0,0,0
+    return f1,f2,new_value
+
 def change_parameter(parameter_name, new_value, verbose=1):
 
     #ZETA_X (double) (2.0e56) // 2e56 ~ 0.3 X-ray photons per stellar baryon
 
     # get path to file
     PATH = get_path()
-    if parameter_name == 'ZETA_X':
 
-        if platform == "darwin": # its mac
-            filepath = PATH + '/Parameter_files/HEAT_PARAMS.H'
-        elif platform == "linux":
-            filepath = PATH + '/Parameter_files/HEAT_PARAMS.H'
-        else: # its windows
-            filepath = PATH + '\\Parameter_files\\HEAT_PARAMS.H'
+    f1,f2,new_value = get_parameter_name(parameter_name, new_value)
+    if f1 = 0: return 0
 
+    # get path to parameter file
+    if platform == "darwin": # its a mac !
+        filepath = PATH + '/' + f1 + '/' + f2
+    elif platform == "linux": # its a linux !!
+        filepath = PATH + '/' + f1 + '/' + f2
+    else: # its a windows !!!!
+        filepath = PATH + '\\' + f1 + '\\' + f2
 
-
-
-
-
-        if new_value == 'default':
-            new_value = '2.0e56'
-    elif parameter_name == '...':
-        1
-        #...
-        #...
-        #...
-    else:
-        print('WARNING - PARAMETER_NAME NOT RECOGNIZED!')
-        return 0
 
     if verbose == 1: print('Changing paramter ', parameter_name, ' to ', new_value)
 
