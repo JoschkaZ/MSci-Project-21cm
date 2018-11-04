@@ -12,11 +12,15 @@ for seed in seeds:
     #clean box folder
     utils.clear_box_directory()
 
+    #remove compiled files
+    commands = ['make clean']
+    utils.run_commands(commands)
+
     #change some parameters
     utils.change_parameter('ZETA_X', 'default')
-    utils.change_param('SEED', str(seed))
-    utils.change_param('drive_zscroll_noTs ZSTART', 9)
-    utils.change_param('drive_zscroll_noTs ZEND', 9)
+    utils.change_parameter('SEED', str(seed))
+    utils.change_parameter('drive_zscroll_noTs ZSTART', 9)
+    utils.change_parameter('drive_zscroll_noTs ZEND', 9)
 
     #run driver
     utils.cd_to_programs()

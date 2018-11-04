@@ -172,6 +172,7 @@ def change_parameter(parameter_name, new_value, verbose=1):
             f.write("%s\n" % line)
     '''
 
+    print('writing to filepath ', filepath)
     new = ''.join(new)
     text_file = open(filepath, "w")
     text_file.write(new)
