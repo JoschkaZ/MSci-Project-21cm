@@ -7,7 +7,7 @@ importlib.reload(utils)
 
 zip_name = 'single_redshift'
 
-seeds = range(1)
+seeds = range(100)
 for seed in seeds:
     print('using seed ', seed)
 
