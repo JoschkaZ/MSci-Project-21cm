@@ -268,7 +268,7 @@ def boxes_to_list_of_slices(box_names):
 
     user = get_user()
     mypath =  r'/home/' + user + r'/Outputs'
-    for boxname in boxnames:
+    for boxname in box_names:
 
         box = utils.read_box(boxname, mypath=mypath)
 
