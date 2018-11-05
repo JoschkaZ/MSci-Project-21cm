@@ -282,10 +282,10 @@ def boxes_to_list_of_slices(box_names):
             slice = box[i,:,:]
             slices.append(slice)
         for i in range(0,255,5):
-            slice = box[i,:,:]
+            slice = box[:,i,:]
             slices.append(slice)
         for i in range(0,255,5):
-            slice = box[i,:,:]
+            slice = box[:,:,i]
             slices.append(slice)
 
     pkl.dump(slices, open("slices.pkl", "wb"))
