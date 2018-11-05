@@ -270,7 +270,7 @@ def boxes_to_list_of_slices(box_names):
     mypath =  r'/home/' + user + r'/Outputs'
     for boxname in box_names:
 
-        box = utils.read_box(boxname, mypath=mypath)
+        box = read_box(boxname, mypath=mypath)
 
         for i in range(0,255,5):
             slice = box[i,:,:]
