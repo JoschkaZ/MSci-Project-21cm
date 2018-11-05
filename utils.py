@@ -27,9 +27,14 @@ def read_box(filename, verbose=1, mypath = ''):
             boxpath = PATH + '/Boxes/' + filename
         else: # its windows
                 boxpath = PATH + '\\Boxes\\' +  filename
-
     else:
-        boxpath = mypath + '\\' + filename
+
+        if platform == "darwin": # its mac
+            boxpath = mypath + '/' + filename
+        elif platform == "linux":
+            boxpath = mypath + '/' + filename
+        else: # its windows
+            boxpath = mypath + '\\' + filename
 
 
     dtype='f'
