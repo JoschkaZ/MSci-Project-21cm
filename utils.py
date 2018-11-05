@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from sys import platform
 from os import listdir
 from os.path import isfile, join
+import pickle as pkl
 
 def get_user():
     linpath = os.getcwd()
@@ -15,16 +16,21 @@ def what_platform():
     print(platform)
     return platform
 
-def read_box(filename, verbose=1):
+def read_box(filename, verbose=1, mypath = ''):
 
     PATH = get_path()
 
-    if platform == "darwin": # its mac
-        boxpath = PATH + '/Boxes/' +  filename
-    elif platform == "linux":
-        boxpath = PATH + '/Boxes/' + filename
-    else: # its windows
-            boxpath = PATH + '\\Boxes\\' +  filename
+    if mypath == '':
+        if platform == "darwin": # its mac
+            boxpath = PATH + '/Boxes/' +  filename
+        elif platform == "linux":
+            boxpath = PATH + '/Boxes/' + filename
+        else: # its windows
+                boxpath = PATH + '\\Boxes\\' +  filename
+
+    else:
+        boxpath = mypath + '\\' + filename
+
 
     dtype='f'
     fd=open(boxpath,'rb')
@@ -202,8 +208,6 @@ def run_commands(commands, verbose=1):
         os.system(command)
     return 1
 
-
-
 def cd_to_boxes():
     user = get_user()
     os.chdir(r'/home/' + user + r'/21cmFAST-master/Boxes')
@@ -221,10 +225,12 @@ def clear_box_directory(verbose=1):
     run_commands(commands, verbose=verbose)
     return 1
 
-def get_delta_T_boxes(verbose=1):
+def get_delta_T_boxes(verbose=1, mypath=''):
     if verbose == 1: print('getting delta_t box names')
-    user = get_user()
-    mypath = r'/home/' + user + r'/21cmFAST-master/Boxes'
+
+    if mypath == '':
+        user = get_user()
+        mypath = r'/home/' + user + r'/21cmFAST-master/Boxes'
     boxfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
     temp = []
@@ -256,6 +262,27 @@ def zip_boxes(box_names, archive_name, verbose=1):
     run_commands(commands)
 
     return 1
+
+def boxes_to_list_of_slices(box_names):
+
+
+    user = get_user()
+    mypath =  r'/home/' + user + r'/Outputs'
+    for boxname in boxnames:
+
+        box = utils.read_box(boxname, mypath=mypath)
+
+        for i in range(0,255,5):
+            slice = box[i,:,:]
+            slices.append(slice)
+        for i in range(0,255,5):
+            slice = box[i,:,:]
+            slices.append(slice)
+        for i in range(0,255,5):
+            slice = box[i,:,:]
+            slices.append(slice)
+
+    pkl.dump(slices, open("slices.pkl", "wb"))
 
 
 
