@@ -13,10 +13,16 @@ Project: https://github.com/aymericdamien/TensorFlow-Examples/
 
 
 from __future__ import division, print_function, absolute_import
-
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
+import pickle
+
+
+slices = pickle.load(open("slices.pkl", "rb"))
+
 
 # Import MNIST data
 from tensorflow.examples.tutorials.mnist import input_data

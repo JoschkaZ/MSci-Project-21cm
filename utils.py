@@ -268,13 +268,15 @@ def zip_boxes(box_names, archive_name, verbose=1):
 
     return 1
 
-def boxes_to_list_of_slices(box_names):
+def boxes_to_list_of_slices(box_names, limit=None):
 
 
     user = get_user()
     mypath =  r'/home/' + user + r'/Outputs'
     slices = []
-    for boxname in box_names:
+
+    if limit== None: limit = len(box_names)
+    for boxname in box_names[0:limit]:
 
         box = read_box(boxname, mypath=mypath)
 
