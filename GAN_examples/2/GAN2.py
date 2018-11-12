@@ -13,23 +13,17 @@ Project: https://github.com/aymericdamien/TensorFlow-Examples/
 
 
 from __future__ import division, print_function, absolute_import
-import matplotlib
-matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
-import pickle
-
-
-slices = pickle.load(open("slices.pkl", "rb"))
-
 
 # Import MNIST data
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
 
 # Training Params
-num_steps = 100000
+num_steps = 50000
 batch_size = 32
 
 # Network Params
@@ -134,6 +128,7 @@ with tf.Session() as sess:
         # Prepare Input Data
         # Get the next batch of MNIST data (only images are needed, not labels)
         batch_x, _ = mnist.train.next_batch(batch_size)
+        print(np.shape(batch_x))
         batch_x = np.reshape(batch_x, newshape=[-1, 28, 28, 1])
         # Generate noise to feed to the generator
         z = np.random.uniform(-1., 1., size=[batch_size, noise_dim])
